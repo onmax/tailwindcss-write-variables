@@ -45,4 +45,4 @@ You can write a new variable using `var-` prefix. Then, you have to set a name a
 </div>
 ```
 
-See it in [Tailwind Playground](https://play.tailwindcss.com/VW6emWtoIe)
+See it in [Tailwind Playground](https://play.tailwindcss.com/J02Aef4sde)
