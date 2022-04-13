@@ -1,6 +1,6 @@
 {
     "name": "tailwindcss-write-variables",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "A Tailwind plugin that allows you to write CSS variables using only classes",
     "main": "src/index.js",
     "categories": [
