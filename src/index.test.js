@@ -147,3 +147,38 @@ test('invalid var', async () => {
         )
     })
 })
+
+test('multiple variables', async () => {
+    let config = {
+        content: [{ raw: html`<div class="var-[--my-var=10px;my-other-var=minmax(1fr_auto)]"></div>` }],
+    }
+
+    return run(config).then((result) => {
+        expect(result.css).toMatchFormattedCss(
+            css`
+                ${defaults}
+
+                .var-\[--my-var\=10px\;my-other-var\=minmax\(1fr_auto\)\] {
+                    --my-var: 10px;
+                    --my-other-var: minmax(1fr auto);
+                }                 
+            `
+        )
+    })
+})
+
+test('invalid multiple var', async () => {
+    let config = {
+        content: [{
+            raw: html`<div class="var-[invalid-var;invalid-var-2=;;=;12]"></div>`
+        }],
+    }
+
+    return run(config).then((result) => {
+        expect(result.css).toMatchFormattedCss(
+            css`
+                ${defaults}
+            `
+        )
+    })
+})

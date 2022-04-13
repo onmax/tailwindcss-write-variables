@@ -2,7 +2,7 @@ const plugin = require('tailwindcss/plugin')
 
 module.exports = plugin(
     function ({ matchUtilities }) {
-        const parseValue = (rawValue) => {
+        const parseVariable = (rawValue) => {
             if (!rawValue.includes('=')) return
 
             const parts = rawValue.split('=')
@@ -23,16 +23,13 @@ module.exports = plugin(
         }
 
         const registerUtility = (utility) => {
-            const parsedValue = parseValue(utility)
-
-            if (!parsedValue) return
-
-            const { name, value } = parsedValue
-
-
-            return {
-                [name]: value
-            }
+            const variables = utility.split(';')
+                .map(parseVariable)
+                .filter(Boolean)
+                .filter(({ name, value }) => name && value)
+                .map(({ name, value }) => ({ [name]: value }))
+                .reduce((acc, curr) => ({ ...acc, ...curr }), {})
+            return Object.keys(variables).length > 0 ? variables : undefined
         }
 
         matchUtilities({
