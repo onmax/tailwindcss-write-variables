@@ -41,11 +41,11 @@ You can write a new variable using `var-` prefix. Then, you have to set a name a
 
 ```html
 <div class="var-[my-var=10rem]">
-    <p class="m-[var(my-var)]">I having a margin!</p>
+    <p class="m-[var(my-var)]">I having a margin of 10rem!</p>
 </div>
 ```
 
-> The use of `--` is optional
+> The use of `--` for the name of the CSS variable is optional. It is the same `var-[my-var=10px]` and `var-[--my-var=10px]`
 
 ### Multiple variables
 
@@ -55,4 +55,16 @@ You can use ';' to write multiple variables with its values:
 <div class="var-[my-var=10rem;my-other-awesome-var=minmax(1fr_auto)]"></div>
 ```
 
-See it in [Tailwind Playground](https://play.tailwindcss.com/J02Aef4sde)
+## Demo
+
+[Tailwind Playground](https://play.tailwindcss.com/9F0iGgiWal)
+
+## Why?
+
+There are basically two reasons for the existence of this plugin:
+
+1. Tailwind group utilities are great... if you only planned to use it once which it is (almost) every situation. The limitations with this is that you only can use the class `.group` so nesting groups or using different groups with different scopes is impossible. With the use of this variables, you could do something similar. For this reason I also build this other plugin [Tailwind Labeled Groups](https://github.com/onmax/tailwindcss-labeled-groups)
+
+2. It is a good alternative to Event Listener with JS. Variants in tailwind give you superpowers and with the use of `calc()` and this plugin you can create some neat code with only CSS, and maybe a little bit of JS (but no listener at all!).
+
+3. It is fun.
