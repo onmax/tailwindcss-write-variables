@@ -40,9 +40,19 @@ You are ready to use it
 You can write a new variable using `var-` prefix. Then, you have to set a name and a value. If the value has spaces, remember to use '_'.
 
 ```html
-<div class="var-[--my-var=10rem]">
-    <p class="m-[var(--my-var)]">I having a margin!</p>
+<div class="var-[my-var=10rem]">
+    <p class="m-[var(my-var)]">I having a margin!</p>
 </div>
+```
+
+> The use of `--` is optional
+
+### Multiple variables
+
+You can use ';' to write multiple variables with its values: 
+
+```html
+<div class="var-[my-var=10rem;my-other-awesome-var=minmax(1fr_auto)]"></div>
 ```
 
 See it in [Tailwind Playground](https://play.tailwindcss.com/J02Aef4sde)
