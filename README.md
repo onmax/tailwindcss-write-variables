@@ -64,7 +64,6 @@ You can use ';' to write multiple variables with its values:
 There are basically two reasons for the existence of this plugin:
 
 1. Tailwind group utilities are great... if you only planned to use it once which it is (almost) every situation. The limitations with this is that you only can use the class `.group` so nesting groups or using different groups with different scopes is impossible. With the use of this variables, you could do something similar. For this reason I also build this other plugin [Tailwind Labeled Groups](https://github.com/onmax/tailwindcss-labeled-groups)
-
 2. It is a good alternative to Event Listener with JS. Variants in tailwind give you superpowers and with the use of `calc()` and this plugin you can create some neat code with only CSS, and maybe a little bit of JS (but no listener at all!).
-
-3. It is fun.
+3. You cannot write multiple CSS variables with TailwindCSS. See [Playground](https://play.tailwindcss.com/apyaf0eymo)
+4. It is fun.
